@@ -1,5 +1,5 @@
 package question3;
-
+import java.awt.*;
 /**
  * NFP121 TpIntroduction, usage de BlueJ et du "Submitter".
  * 
@@ -45,7 +45,26 @@ public class AuditeurCNAM {
      *         homonymes...
      */
     public String login() {
-        return "";// à compléter
+        String NomMin = nom.toLowerCase();
+        String PrenomMin = prenom.toLowerCase();
+        
+        String NomEspace = NomMin.replace(' ','_');
+        String PrenomEspace = PrenomMin.replace(' ','_');
+        
+        String NomAcc = NomEspace.replace('é','e');
+        String PrenomAcc = PrenomEspace.replace('é','e');
+        
+        String NomUtilisable = NomAcc.replace('-','_');
+        String PrenomUtilisable = PrenomAcc.replace('-','_');
+
+        int SubEnd ;
+        SubEnd = 6;
+        if (NomUtilisable.length()<=5) SubEnd = NomUtilisable.length();
+        String NomSix = NomUtilisable.substring(0,SubEnd);
+        String PrenomUn = PrenomUtilisable.substring(0,1);
+        
+        String LoginString = NomSix+"_"+PrenomUn;
+        return LoginString;
     }
 
     /**
@@ -54,7 +73,7 @@ public class AuditeurCNAM {
      * @return son nom
      */
     public String nom() {
-        return null;// à compléter
+        return nom;
     }
 
     /**
@@ -63,7 +82,7 @@ public class AuditeurCNAM {
      * @return son prénom
      */
     public String prenom() {
-        return null;// à compléter
+        return prenom;
     }
 
     /**
@@ -72,7 +91,7 @@ public class AuditeurCNAM {
      * @return son matricule
      */
     public String matricule() {
-        return null;// à compléter
+        return matricule;
     }
 
     /**
